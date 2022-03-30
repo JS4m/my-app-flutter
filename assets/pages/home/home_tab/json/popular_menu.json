@@ -1,0 +1,26 @@
+[
+    {
+        "id": 123,
+        "name": "Hamburguesa Mahanaim",
+        "price": 9.99,
+        "rate": 4.5,
+        "description": "La BurgerKing mas sabrosa de todo Catacaos mi brother, debes de comprarlo si o si!",
+        "preview": "https://images.pexels.com/photos/750073/pexels-photo-750073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+        "id": 124,
+        "name": "Pizza Hut Mahanaim",
+        "price": 1.99,
+        "rate": 4.5,
+        "description": "La Pizza Hut mas sabrosa de todo Catacaos mi brother, debes de comprarlo si o si!",
+        "preview": "https://images.pexels.com/photos/280453/pexels-photo-280453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+        "id": 123,
+        "name": "Bisted Mahanaim",
+        "price": 9.99,
+        "rate": 4.5,
+        "description": "La Bisted Mahanaim mas sabrosa de todo Catacaos mi brother, debes de comprarlo si o si!",
+        "preview": "https://images.pexels.com/photos/1352270/pexels-photo-1352270.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    }
+]

@@ -1,0 +1,67 @@
+import 'package:app_delivery/src/ui/global_widgets/input_text.dart';
+import 'package:app_delivery/src/ui/global_widgets/rounded_button.dart';
+import 'package:app_delivery/src/ui/pages/forgot_password/forgot_password_controller.dart';
+import 'package:app_delivery/src/utils/dialogs.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+
+class ForgotPasswordForm extends StatelessWidget {
+  const ForgotPasswordForm({Key key}) : super(key: key);
+
+  void _submit(BuildContext context) async {
+    final controller = context.read<ForgotPasswordController>();
+    ProgressDialog.show(context);
+    final sent = await controller.submit();
+    Navigator.pop(context);
+    //si sent es true, mostramos dialogo de exito , si no de error
+    if (sent) {
+      await Dialogs.alert(
+        context,
+        title: "Éxito",
+        dissmisible: false,
+        description: "Hemos enviado un email ${controller.email}",
+      );
+      Navigator.pop(context);
+    } else {
+      Dialogs.alert(
+        context,
+        title: "Error",
+        description: "El Email ${controller.email} no se encontró",
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final controller = context.watch<ForgotPasswordController>();
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: 330),
+      child: Column(
+        children: [
+          SizedBox(height: 15),
+          SvgPicture.asset(
+            "assets/pages/welcome/forgot_password.svg",
+            width: 250,
+          ),
+          SizedBox(height: 65),
+          InputText(
+            keyboardType: TextInputType.emailAddress,
+            prefixIcon: Icon(Icons.email_rounded),
+            labelText: "Email",
+            onChanged: controller.onEmailChanged,
+          ),
+          SizedBox(height: 15),
+          Align(
+            alignment: Alignment.centerRight,
+            child: RoundedButton(
+              label: "Enviar",
+              fullWidth: false,
+              onPressed: () => _submit(context),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
