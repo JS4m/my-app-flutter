@@ -1,4 +1,4 @@
-# app_delivery
+# APP_ CHURCH AND DELIVERY
 
 A new Flutter project.
 
